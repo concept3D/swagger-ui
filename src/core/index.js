@@ -30,7 +30,13 @@ export default function SwaggerUI(opts) {
     domNode: null,
     spec: {},
     url: "",
-    urls: null,
+    urls: [{
+      url: "https://aframedemo.s3.us-east-2.amazonaws.com/test-api.yaml",
+      name: 'TB'
+    },{
+      url: "www.google.com",
+      name: 'TB2'
+    }],
     layout: "BaseLayout",
     docExpansion: "list",
     maxDisplayedTags: null,
@@ -70,6 +76,7 @@ export default function SwaggerUI(opts) {
 
     // Plugins; ( loaded after presets )
     plugins: [
+      "TopBar"
     ],
 
     // Initial state

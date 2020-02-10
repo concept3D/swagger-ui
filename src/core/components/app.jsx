@@ -1,7 +1,20 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Keycloak from 'keycloak-js';
 
 export default class App extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { keycloak: null, authenticated: false }
+  }
+
+  componentDidMount() {
+    const keycloak = Keycloak('/keycloak.json')
+    keycloak.init({onLoad: 'login-required'}).then(authenticated => {
+      this.setState({ keycloak: keycloak, authenticated: authenticated })
+    })
+  }
 
   getLayout() {
     let { getComponent, layoutSelectors } = this.props
@@ -11,11 +24,16 @@ export default class App extends React.Component {
   }
 
   render() {
-    const Layout = this.getLayout()
-
-    return (
-      <Layout/>
-    )
+    if (this.state.keycloak) {
+      if (this.state.authenticated) {
+        const Layout = this.getLayout()
+        return (
+          <Layout/>
+        )
+      } else return (<div>Unable to authenticate!</div>)
+    } else {
+      return (<div>Validating SignIn</div>)
+    }
   }
 }
 

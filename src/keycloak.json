@@ -1,0 +1,10 @@
+{
+  "realm": "Concept3D",
+  "auth-server-url": "https://qaauth.concept3d.com/auth/",
+  "ssl-required": "external",
+  "resource": "CMS",
+  "credentials": {
+    "secret": "9539dfdc-3b81-4899-8490-3ca34121c1ac"
+  },
+  "confidential-port": 0
+}

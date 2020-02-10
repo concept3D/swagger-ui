@@ -62,6 +62,7 @@
     "immutable": "^3.x.x",
     "js-file-download": "^0.4.1",
     "js-yaml": "^3.13.1",
+    "keycloak-js": "^8.0.2",
     "lodash": "^4.17.15",
     "memoizee": "^0.4.12",
     "prop-types": "^15.7.2",
